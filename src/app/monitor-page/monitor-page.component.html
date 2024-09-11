@@ -1,4 +1,52 @@
-<mat-table [dataSource]="dataSource">
-    <!-- Columns definitions -->
-  </mat-table>
-  
+<div class="monitor-container">
+  <!-- Filter Controls -->
+  <div class="filters">
+    <label>IDs:</label>
+    <mat-select [(ngModel)]="selectedIds" multiple placeholder="Select IDs">
+      <mat-option *ngFor="let id of availableIds" [value]="id">{{ id }}</mat-option>
+    </mat-select>
+
+    <label>Names:</label>
+    <input type="text" [(ngModel)]="filterName" placeholder="Enter Names">
+
+    <label>State:</label>
+    <div class="state-filters">
+      <mat-checkbox [(ngModel)]="showPassed" checked>Passed</mat-checkbox>
+      <mat-checkbox [(ngModel)]="showFailed" checked>Failed</mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Data Table -->
+  <table mat-table [dataSource]="filteredData" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'passed': element.passed, 'failed': !element.passed}">
+        {{ element.id }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'passed': element.passed, 'failed': !element.passed}">
+        {{ element.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="average">
+      <th mat-header-cell *matHeaderCellDef> Average </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'passed': element.passed, 'failed': !element.passed}">
+        {{ element.average }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="exams">
+      <th mat-header-cell *matHeaderCellDef> Exams </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'passed': element.passed, 'failed': !element.passed}">
+        {{ element.exams }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

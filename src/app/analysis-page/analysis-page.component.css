@@ -1,0 +1,39 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  
+    label {
+      margin-right: 10px;
+    }
+  }
+  
+  .charts-container {
+    display: flex;
+    justify-content: space-between;
+  
+    .chart {
+      width: 48%;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+  }
+  
+  .hidden-chart-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  
+    button {
+      background-color: #007bff;
+      color: white;
+    }
+  }
+  
