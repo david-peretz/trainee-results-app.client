@@ -1,0 +1,28 @@
+﻿.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff; /* Blue background */
+    padding: 10px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-link.active,
+  .nav-link:hover {
+    background-color: #0056b3; /* Darker blue for hover/active */
+    color: #ffffff;
+  }
