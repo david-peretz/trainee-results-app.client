@@ -11,7 +11,7 @@ import { MonitorPageComponent } from './monitor-page/monitor-page.component';
 import { AnalysisPageComponent } from './analysis-page/analysis-page.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-
+import { BaseChartDirective  } from 'ng2-charts';
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -21,6 +21,7 @@ import { MatOptionModule } from '@angular/material/core';
     AnalysisPageComponent
   ],
   imports: [
+    BaseChartDirective,
     BrowserModule,
     AppRoutingModule,
     MatTableModule,

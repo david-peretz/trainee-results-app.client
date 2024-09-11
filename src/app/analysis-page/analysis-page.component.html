@@ -1,42 +1,57 @@
-
-<div class="app-container">
-    <!-- Filter Section -->
+<div class="analysis-container">
+    <!-- Selection Controls -->
     <div class="filter-section">
-      <label for="ids">IDs:</label>
-      <mat-select placeholder="Select IDs" [(ngModel)]="selectedIds" multiple>
-        <mat-option *ngFor="let id of availableIds" [value]="id">{{ id }}</mat-option>
-      </mat-select>
-  
-      <label for="subjects">Subjects:</label>
-      <mat-select placeholder="Select Subjects" [(ngModel)]="selectedSubjects" multiple>
-        <mat-option *ngFor="let subject of availableSubjects" [value]="subject">{{ subject }}</mat-option>
-      </mat-select>
+      <mat-form-field>
+        <mat-label>IDs</mat-label>
+        <mat-select multiple [(value)]="selectedIds">
+          <mat-option *ngFor="let id of availableIds" [value]="id">{{id}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Subjects</mat-label>
+        <mat-select multiple [(value)]="selectedSubjects">
+          <mat-option *ngFor="let subject of availableSubjects" [value]="subject">{{subject}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   
-    <!-- Chart Section -->
-    <div class="charts-container">
-      <div class="chart" id="chart1">
-        <h3>Chart 1:</h3>
-        <p>Grades average over time for students with ID (for each student)</p>
-        <!-- Chart 1 Content -->
-      </div>
-  
-      <div class="chart" id="chart3">
-        <h3>Chart 3:</h3>
-        <p>Grades averages per subject</p>
-        <!-- Chart 3 Content -->
-      </div>
-  
-      <div class="chart" id="chart2">
-        <h3>Chart 2:</h3>
-        <p>Students averages for students with chosen ID</p>
-        <!-- Chart 2 Content -->
-      </div>
+    <!-- Chart 1 -->
+    <div class="chart-container">
+      <canvas baseChart
+              [datasets]="chart1Data"
+              [labels]="chart1Labels"
+              [options]="chartOptions"
+              [legend]="chartLegend"
+              [type]="chartType"
+              draggable="true"
+              (dragstart)="onDragStart($event)">
+      </canvas>
     </div>
   
-    <!-- Hidden Chart Button -->
-    <div class="hidden-chart-button">
-      <button mat-button (click)="toggleCharts()">Switch Charts</button>
+    <!-- Chart 2 -->
+    <div class="chart-container">
+      <canvas baseChart
+              [datasets]="chart2Data"
+              [labels]="chart2Labels"
+              [options]="chartOptions"
+              [legend]="chartLegend"
+              [type]="chartType"
+              draggable="true"
+              (dragstart)="onDragStart($event)">
+      </canvas>
+    </div>
+  
+    <!-- Chart 3 -->
+    <div class="chart-container">
+      <canvas baseChart
+              [datasets]="chart3Data"
+              [labels]="chart3Labels"
+              [options]="chartOptions"
+              [legend]="chartLegend"
+              [type]="chartType"
+              draggable="true"
+              (dragstart)="onDragStart($event)">
+      </canvas>
     </div>
   </div>
   
