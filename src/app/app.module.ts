@@ -7,11 +7,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';  // Ensure FormsModule is imported
+import { MonitorPageComponent } from './monitor-page/monitor-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataPageComponent
+    DataPageComponent,
+    MonitorPageComponent
   ],
   imports: [
     BrowserModule,
