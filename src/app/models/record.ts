@@ -10,4 +10,5 @@ export interface Record {
     city?: string;
     country?: string;
     zip?: string;
+    average: number;
   }
