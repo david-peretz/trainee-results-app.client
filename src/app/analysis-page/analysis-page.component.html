@@ -1,56 +1,38 @@
 <div class="analysis-container">
-    <!-- Selection Controls -->
-    <div class="filter-section">
-      <mat-form-field>
-        <mat-label>IDs</mat-label>
-        <mat-select multiple [(value)]="selectedIds">
-          <mat-option *ngFor="let id of availableIds" [value]="id">{{id}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Subjects</mat-label>
-        <mat-select multiple [(value)]="selectedSubjects">
-          <mat-option *ngFor="let subject of availableSubjects" [value]="subject">{{subject}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="filters">
+      <input type="text" placeholder="IDs:" [(ngModel)]="selectedIds" />
+      <input type="text" placeholder="Subjects:" [(ngModel)]="selectedSubjects" />
     </div>
   
-    <!-- Chart 1 -->
-    <div class="chart-container">
-      <canvas baseChart
-              [datasets]="chart1Data"
-              [labels]="chart1Labels"
-              [options]="chartOptions"
-              [legend]="chartLegend"
-              [type]="chartType"
-              draggable="true"
-              (dragstart)="onDragStart($event)">
-      </canvas>
+    <div class="charts-container">
+      <div id="chart1" class="chart">
+        <canvas baseChart 
+                [datasets]="chart1Data" 
+                [labels]="chart1Labels" 
+                [options]="chartOptions" 
+                [legend]="chartLegend" 
+                [type]="chartType">
+        </canvas>
+      </div>
+  
+      <div id="chart3" class="chart">
+        <canvas baseChart 
+                [datasets]="chart3Data" 
+                [labels]="chart3Labels" 
+                [options]="chartOptions" 
+                [legend]="chartLegend" 
+                [type]="chartType">
+        </canvas>
+      </div>
     </div>
   
-    <!-- Chart 2 -->
-    <div class="chart-container">
-      <canvas baseChart
-              [datasets]="chart2Data"
-              [labels]="chart2Labels"
-              [options]="chartOptions"
-              [legend]="chartLegend"
-              [type]="chartType"
-              draggable="true"
-              (dragstart)="onDragStart($event)">
-      </canvas>
-    </div>
-  
-    <!-- Chart 3 -->
-    <div class="chart-container">
-      <canvas baseChart
-              [datasets]="chart3Data"
-              [labels]="chart3Labels"
-              [options]="chartOptions"
-              [legend]="chartLegend"
-              [type]="chartType"
-              draggable="true"
-              (dragstart)="onDragStart($event)">
+    <div class="bottom-chart">
+      <canvas baseChart 
+              [datasets]="chart2Data" 
+              [labels]="chart2Labels" 
+              [options]="chartOptions" 
+              [legend]="chartLegend" 
+              [type]="chartType">
       </canvas>
     </div>
   </div>
